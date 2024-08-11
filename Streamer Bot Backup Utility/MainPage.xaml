@@ -11,11 +11,18 @@
                 <Label Text="{x:Static strings:Localisation.App_Title}"     Style="{StaticResource Headline}" />
                 <Label Text="{x:Static strings:Localisation.App_Sub_Title}" Style="{StaticResource SubHeadline}" />
             </VerticalStackLayout>
-            <VerticalStackLayout>
-                <Label Text="{x:Static strings:Localisation.Streamer_Bot_Location}" Style="{StaticResource SectionHeader}"/>
-                <Label Text="{Binding Config.StreamerBotLocation}" />
-                <Button Text="{x:Static strings:Localisation.Select_StreamerBot_Location}" MaximumWidthRequest="500" HorizontalOptions="Start" Clicked="btnStreamerBotLocation_Clicked" />
-            </VerticalStackLayout>
+            <HorizontalStackLayout Spacing="100">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="{x:Static strings:Localisation.Streamer_Bot_Location}" Style="{StaticResource SectionHeader}"/>
+                    <Button Text="{x:Static strings:Localisation.Select_StreamerBot_Location}" HorizontalOptions="Start" Clicked="btnStreamerBotLocation_Clicked" />
+                    <Label Text="{Binding Config.StreamerBotLocation}" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="{x:Static strings:Localisation.Backup_Data}" Style="{StaticResource SectionHeader}"/>
+                    <Button Text="{x:Static strings:Localisation.Backup}" HorizontalOptions="Start" Clicked="btnBackup_Clicked" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 

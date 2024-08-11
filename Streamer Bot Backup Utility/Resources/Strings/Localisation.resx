@@ -123,6 +123,18 @@
   <data name="App_Title" xml:space="preserve">
     <value>Streamer Bot Backup Utility</value>
   </data>
+  <data name="Backup" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="Backup_Complete" xml:space="preserve">
+    <value>Backup Complete</value>
+  </data>
+  <data name="Backup_Data" xml:space="preserve">
+    <value>Backup Data Files</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
