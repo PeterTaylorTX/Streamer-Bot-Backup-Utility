@@ -6,7 +6,7 @@ namespace Streamer_Bot_Backup_Utility
         /// <summary>
         /// The configuration for the app
         /// </summary>
-        public Model.Config Config { get; set; } = new();
+        public Data.Config Config { get; set; } = new();
 
         public MainPage()
         {
@@ -14,12 +14,7 @@ namespace Streamer_Bot_Backup_Utility
 
             try
             {
-                /// LOAD CONFIG
-                string strConfig = Preferences.Get("config", string.Empty);
-                Model.Config? tmpConfig = null;
-                if (!string.IsNullOrWhiteSpace(strConfig)) { tmpConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.Config>(strConfig); }
-                if (tmpConfig == null) { this.Config = new(); } else { this.Config = tmpConfig; }
-                /// LOAD CONFIG
+                this.Config = Data.Config.Load(); // Load the Config
             }
             catch (Exception ex) { DisplayAlert(Streamer_Bot_Backup_Utility.Resources.Strings.Localisation.Error, ex.Message, Streamer_Bot_Backup_Utility.Resources.Strings.Localisation.OK); }
         }
@@ -43,7 +38,7 @@ namespace Streamer_Bot_Backup_Utility
         {
             try
             {
-                Preferences.Set("config", Newtonsoft.Json.JsonConvert.SerializeObject(this.Config));
+                this.Config.Save(); // Save the config
             }
             catch (Exception ex) { DisplayAlert(Streamer_Bot_Backup_Utility.Resources.Strings.Localisation.Error, ex.Message, Streamer_Bot_Backup_Utility.Resources.Strings.Localisation.OK); }
         }
